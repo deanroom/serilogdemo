@@ -1,0 +1,74 @@
+2024-10-22 21:00:38.212 +08:00 [INF] Starting up
+2024-10-22 21:00:38.314 +08:00 [INF] Creating MyCustomService
+2024-10-22 21:00:38.417 +08:00 [INF] Doing work in MyCustomService
+2024-10-22 21:00:38.970 +08:00 [INF] Data enqueued: Hello
+2024-10-22 21:00:39.021 +08:00 [INF] Data enqueued: World
+2024-10-22 21:00:39.131 +08:00 [INF] Item processed: Processed: HELLO
+2024-10-22 21:00:39.131 +08:00 [INF] Processed item: Processed: HELLO
+2024-10-22 21:00:39.144 +08:00 [INF] Current queue size: 1
+2024-10-22 21:00:39.144 +08:00 [INF] Queue size: 1
+2024-10-22 21:00:39.346 +08:00 [INF] Queue cleared
+2024-10-22 21:00:39.348 +08:00 [INF] Disposing MyCustomService
+2024-10-22 21:01:45.752 +08:00 [INF] Starting up <s:>
+2024-10-22 21:01:45.859 +08:00 [INF] Services resolved <s:Program>
+2024-10-22 21:01:45.860 +08:00 [INF] Creating MyCustomService <s:MyCustomService>
+2024-10-22 21:01:45.962 +08:00 [INF] Doing work in MyCustomService <s:MyCustomService>
+2024-10-22 21:01:46.517 +08:00 [INF] Data enqueued: Hello <s:DataProcessingService>
+2024-10-22 21:01:46.569 +08:00 [INF] Data enqueued: World <s:DataProcessingService>
+2024-10-22 21:01:46.690 +08:00 [INF] Item processed: Processed: HELLO <s:DataProcessingService>
+2024-10-22 21:01:46.695 +08:00 [INF] Processed item: Processed: HELLO <s:Program>
+2024-10-22 21:01:46.708 +08:00 [INF] Current queue size: 1 <s:DataProcessingService>
+2024-10-22 21:01:46.709 +08:00 [INF] Queue size: 1 <s:Program>
+2024-10-22 21:01:46.912 +08:00 [INF] Queue cleared <s:DataProcessingService>
+2024-10-22 21:01:46.912 +08:00 [INF] All operations completed <s:Program>
+2024-10-22 21:01:46.914 +08:00 [INF] Disposing MyCustomService <s:MyCustomService>
+2024-10-22 21:02:08.646 +08:00 [INF] Starting up <s:>
+2024-10-22 21:02:08.747 +08:00 [INF] Creating MyCustomService <s:MyCustomService>
+2024-10-22 21:02:08.851 +08:00 [INF] Doing work in MyCustomService <s:MyCustomService>
+2024-10-22 21:02:09.406 +08:00 [INF] Data enqueued: Hello <s:DataProcessingService>
+2024-10-22 21:02:09.458 +08:00 [INF] Data enqueued: World <s:DataProcessingService>
+2024-10-22 21:02:09.595 +08:00 [INF] Item processed: Processed: HELLO <s:DataProcessingService>
+2024-10-22 21:02:09.596 +08:00 [INF] Processed item: Processed: HELLO <s:>
+2024-10-22 21:02:09.612 +08:00 [INF] Current queue size: 1 <s:DataProcessingService>
+2024-10-22 21:02:09.612 +08:00 [INF] Queue size: 1 <s:>
+2024-10-22 21:02:09.815 +08:00 [INF] Queue cleared <s:DataProcessingService>
+2024-10-22 21:02:09.816 +08:00 [INF] Disposing MyCustomService <s:MyCustomService>
+2024-10-22 21:02:34.644 +08:00 [INF] Starting up <s:>
+2024-10-22 21:02:34.743 +08:00 [INF] Creating MyCustomService <s:MyCustomService>
+2024-10-22 21:02:34.846 +08:00 [INF] Doing work in MyCustomService <s:MyCustomService>
+2024-10-22 21:02:35.402 +08:00 [INF] Data enqueued: Hello <s:DataProcessingService>
+2024-10-22 21:02:35.454 +08:00 [INF] Data enqueued: World <s:DataProcessingService>
+2024-10-22 21:02:35.576 +08:00 [INF] Item processed: Processed: HELLO <s:DataProcessingService>
+2024-10-22 21:02:35.576 +08:00 [INF] Processed item: Processed: HELLO <s:>
+2024-10-22 21:02:35.590 +08:00 [INF] Current queue size: 1 <s:DataProcessingService>
+2024-10-22 21:02:35.591 +08:00 [INF] Queue size: 1 <s:>
+2024-10-22 21:02:35.795 +08:00 [INF] Queue cleared <s:DataProcessingService>
+2024-10-22 21:02:35.796 +08:00 [INF] Disposing MyCustomService <s:MyCustomService>
+2024-10-22 21:03:48.863 +08:00 [INF] Starting up <s:>
+2024-10-22 21:03:48.965 +08:00 [INF] Services resolved <s:Program>
+2024-10-22 21:03:48.965 +08:00 [INF] Creating MyCustomService <s:MyCustomService>
+2024-10-22 21:03:49.068 +08:00 [INF] Doing work in MyCustomService <s:MyCustomService>
+2024-10-22 21:03:49.623 +08:00 [INF] Data enqueued: Hello <s:DataProcessingService>
+2024-10-22 21:03:49.675 +08:00 [INF] Data enqueued: World <s:DataProcessingService>
+2024-10-22 21:03:49.797 +08:00 [INF] Item processed: Processed: HELLO <s:DataProcessingService>
+2024-10-22 21:03:49.801 +08:00 [INF] Processed item: Processed: HELLO <s:Program>
+2024-10-22 21:03:49.814 +08:00 [INF] Current queue size: 1 <s:DataProcessingService>
+2024-10-22 21:03:49.815 +08:00 [INF] Queue size: 1 <s:Program>
+2024-10-22 21:03:50.018 +08:00 [INF] Queue cleared <s:DataProcessingService>
+2024-10-22 21:03:50.018 +08:00 [INF] All operations completed <s:Program>
+2024-10-22 21:03:50.019 +08:00 [INF] Disposing MyCustomService <s:MyCustomService>
+2024-10-22 21:09:20.522 +08:00 [INF] Starting up <s:>
+2024-10-22 21:09:20.621 +08:00 [INF] Services resolved <s:Program>
+2024-10-22 21:09:20.622 +08:00 [INF] Creating MyCustomService <s:MyCustomService>
+2024-10-22 21:09:20.751 +08:00 [INF] Doing work in MyCustomService <s:MyCustomService>
+2024-10-22 21:09:21.306 +08:00 [INF] Data enqueued: Hello <s:DataProcessingService>
+2024-10-22 21:09:21.358 +08:00 [INF] Data enqueued: World <s:DataProcessingService>
+2024-10-22 21:09:21.479 +08:00 [INF] Item processed: Processed: HELLO <s:DataProcessingService>
+2024-10-22 21:09:21.479 +08:00 [INF] Item processed: Processed: HELLO <s:Logger1>
+2024-10-22 21:09:21.479 +08:00 [INF] Item processed: Processed: HELLO <s:Logger2>
+2024-10-22 21:09:21.484 +08:00 [INF] Processed item: Processed: HELLO <s:Program>
+2024-10-22 21:09:21.513 +08:00 [INF] Current queue size: 1 <s:DataProcessingService>
+2024-10-22 21:09:21.514 +08:00 [INF] Queue size: 1 <s:Program>
+2024-10-22 21:09:21.720 +08:00 [INF] Queue cleared <s:DataProcessingService>
+2024-10-22 21:09:21.720 +08:00 [INF] All operations completed <s:Program>
+2024-10-22 21:09:21.722 +08:00 [INF] Disposing MyCustomService <s:MyCustomService>

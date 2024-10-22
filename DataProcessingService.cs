@@ -1,14 +1,20 @@
 using Microsoft.Extensions.Logging;
 using System.Collections.Concurrent;
+using Microsoft.Extensions.DependencyInjection;
 
 public class DataProcessingService
 {
     private readonly ILogger<DataProcessingService> _logger;
     private readonly ConcurrentQueue<string> _dataQueue = new ConcurrentQueue<string>();
+    private readonly ILogger _logger1;
+    private readonly ILogger _logger2;
 
-    public DataProcessingService(ILogger<DataProcessingService> logger)
+    public DataProcessingService(ILogger<DataProcessingService> logger, IServiceProvider serviceProvider)
     {
         _logger = logger;
+        var logFactory = serviceProvider.GetRequiredService<ILoggerFactory>();
+        _logger1 = logFactory.CreateLogger("Logger1");
+        _logger2 = logFactory.CreateLogger("Logger2");
     }
 
     public async Task EnqueueDataAsync(string data)
@@ -31,6 +37,8 @@ public class DataProcessingService
             await Task.Delay(100); // Simulate processing time
             string processedItem = $"Processed: {item.ToUpper()}";
             _logger.LogInformation($"Item processed: {processedItem}");
+            _logger1.LogInformation($"Item processed: {processedItem}");
+            _logger2.LogInformation($"Item processed: {processedItem}");
             return processedItem;
         }
         

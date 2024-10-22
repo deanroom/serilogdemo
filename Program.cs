@@ -1,45 +1,74 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using BenchmarkDotNet.Running;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Serilog;
 
 class Program
 {
     static async Task Main(string[] args)
     {
-        var host = CreateHostBuilder(args).Build();
+        var configuration = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            .AddEnvironmentVariables()
+            .Build();
 
-        await using (var scope = host.Services.CreateAsyncScope())
+        Log.Logger = new LoggerConfiguration()
+            .ReadFrom.Configuration(configuration)
+            .CreateLogger();
+
+        try
         {
-            var services = scope.ServiceProvider;
-            var myService = services.GetRequiredService<MyCustomService>();
-            var dataProcessingService = services.GetRequiredService<DataProcessingService>();
+            Log.Information("Starting up");
+            var host = CreateHostBuilder(args).Build();
 
-            await myService.CreateAsync();
-            await myService.DoWorkAsync();
+            await using (var scope = host.Services.CreateAsyncScope())
+            {
+                var services = scope.ServiceProvider;
+                var logger = services.GetRequiredService<ILogger<Program>>();
+                var myService = services.GetRequiredService<MyCustomService>();
+                var dataProcessingService = services.GetRequiredService<DataProcessingService>();
 
-            // Use the new DataProcessingService
-            await dataProcessingService.EnqueueDataAsync("Hello");
-            await dataProcessingService.EnqueueDataAsync("World");
-            
-            string processedItem = await dataProcessingService.ProcessNextItemAsync();
-            Console.WriteLine($"Processed item: {processedItem}");
+                logger.LogInformation("Services resolved");
 
-            int queueSize = await dataProcessingService.GetQueueSizeAsync();
-            Console.WriteLine($"Queue size: {queueSize}");
+                await myService.CreateAsync();
+                await myService.DoWorkAsync();
 
-            await dataProcessingService.ClearQueueAsync();
+                await dataProcessingService.EnqueueDataAsync("Hello");
+                await dataProcessingService.EnqueueDataAsync("World");
+                
+                string processedItem = await dataProcessingService.ProcessNextItemAsync();
+                logger.LogInformation("Processed item: {ProcessedItem}", processedItem);
+
+                int queueSize = await dataProcessingService.GetQueueSizeAsync();
+                logger.LogInformation("Queue size: {QueueSize}", queueSize);
+
+                await dataProcessingService.ClearQueueAsync();
+
+                logger.LogInformation("All operations completed");
+            }
+
+            await host.RunAsync();
         }
-
-        await host.RunAsync();
+        catch (Exception ex)
+        {
+            Log.Fatal(ex, "Application start-up failed");
+        }
+        finally
+        {
+            Log.CloseAndFlush();
+        }
     }
 
     static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
+            .UseSerilog()
             .ConfigureServices((hostContext, services) =>
             {
                 services.AddTransient<MyCustomService>();
-                services.AddSingleton<DataProcessingService>(); // Register the new service
+                services.AddSingleton<DataProcessingService>();
             });
 }
